@@ -1,5 +1,5 @@
 import { ChildProcess } from "child_process";
-import { bgBlack, green, rainbow, red } from "colors";
+import { bgBlack, green, rainbow, red, yellow } from "colors";
 import * as commander from "commander";
 import * as sh from "shelljs";
 
@@ -19,7 +19,9 @@ function onInputReceive(directories: string[]) {
     const command = "npm i";
     for (let directory of directories) {
         sh.pushd(directory);
+        console.log(yellow("npm installing in: " + directory));
         sh.exec("npm i");
+        console.log(green("Done"));
         sh.popd();
     }
     console.log();

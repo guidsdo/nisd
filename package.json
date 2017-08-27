@@ -1,6 +1,6 @@
 {
   "name": "nisd",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Npm Install in SubDirectories. Yes. Use it like: `nisd [subdirs...]` (Example: `nisd client server scripts`)",
   "main": "lib/index.js",
   "scripts": {
