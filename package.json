@@ -1,14 +1,14 @@
 {
   "name": "nisd",
-  "version": "0.0.1",
-  "description": "Npm Install in Folders. Yes. Use it like: `nisf [directories...]` (Example: `nisf client server scripts`)",
+  "version": "0.0.2",
+  "description": "Npm Install in SubDirectories. Yes. Use it like: `nisd [subdirs...]` (Example: `nisd client server scripts`)",
   "main": "lib/index.js",
   "scripts": {
     "build": "tsc"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/guidojo/npmInstallInFolders.git"
+    "url": "git+https://github.com/guidojo/npmInstallInSubDirectories.git"
   },
   "keywords": [
     "npm",
@@ -25,9 +25,9 @@
   "author": "guidojo",
   "license": "SEE LICENCE IN LICENSE",
   "bugs": {
-    "url": "https://github.com/guidojo/npmInstallInFolders/issues"
+    "url": "https://github.com/guidojo/npmInstallInSubDirectories/issues"
   },
-  "homepage": "https://github.com/guidojo/npmInstallInFolders#readme",
+  "homepage": "https://github.com/guidojo/npmInstallInSubDirectories#readme",
   "dependencies": {
     "colors": "^1.1.2",
     "commander": "^2.11.0",
@@ -41,6 +41,6 @@
     "typescript": "^2.4.2"
   },
   "bin": {
-    "nisb": "./bin/nif"
+    "nisd": "./bin/nisd"
   }
 }
