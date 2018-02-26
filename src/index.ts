@@ -20,7 +20,7 @@ function onInputReceive(directories: string[]) {
     for (let directory of directories) {
         sh.pushd(directory);
         console.log(yellow("npm installing in: " + directory));
-        sh.exec("npm i");
+        sh.exec(command);
         console.log(green("Done"));
         sh.popd();
     }
