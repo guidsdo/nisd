@@ -1,6 +1,10 @@
 {
     "typescript.tsdk": "node_modules/typescript/lib",
-    "editor.formatOnSave": true,
-    "prettier.printWidth": 120,
-    "prettier.tabWidth": 4
+    "[typescript]": {
+        "editor.formatOnSave": true
+    },
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "prettier.tabWidth": 4,
+    "prettier.printWidth": 120
 }
