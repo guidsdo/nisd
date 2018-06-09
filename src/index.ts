@@ -1,30 +1,17 @@
-import { ChildProcess } from "child_process";
-import { bgBlack, green, rainbow, red, yellow } from "colors";
 import * as commander from "commander";
-import * as sh from "shelljs";
+import { eisd } from "eisd";
 
-/**
- * This is a CLI tool helps you do npm install per given folder. If you try to do the same
- * with a normal npm command, it will install it in the wrong folder. So this tool simply
- * navigates to the proper folders and does `npm i`. That's it. #ez #boring
- */
+commander
+    .usage("[options] <directories...>")
+    .arguments("[options] <directories...>")
+    .option("-a, --async", "Execute yarn async across all folders, output will be a mess")
+    .option(
+        "-e, --allowErrors",
+        "Allow errors (at default we stop when there is one). NOTE: always true when in async mode!"
+    )
+    .parse(process.argv);
 
-commander.arguments("[directories...]").action(onInputReceive).parse(process.argv);
+const allowErrors = commander.allowErrors === true;
+const async = commander.async === true;
 
-function onInputReceive(directories: string[]) {
-    if (!directories.length) {
-        console.error(red("No folders given, do normal please.."));
-        process.exit(1);
-    }
-    const command = "npm i";
-    for (let directory of directories) {
-        sh.pushd(directory);
-        console.log(yellow("npm installing in: " + directory));
-        sh.exec(command);
-        console.log(green("Done"));
-        sh.popd();
-    }
-    console.log();
-    console.log(bgBlack(rainbow("Done installing in the following directories:")));
-    console.log(green(directories.join(", ")));
-}
+eisd("npm i", commander.args, "", true, async);
